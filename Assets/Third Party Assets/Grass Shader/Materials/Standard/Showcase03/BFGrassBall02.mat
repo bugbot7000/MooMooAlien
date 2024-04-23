@@ -11,7 +11,11 @@ Material:
   m_Shader: {fileID: 4800000, guid: 7cd5d6fe2c6238e469561875c01946f3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - USE_CS
+  - USE_RT
+  - USE_S
+  - USE_SC
   m_InvalidKeywords:
   - _RTEFFECT_ON
   m_LightmapFlags: 4
@@ -166,6 +170,7 @@ Material:
     - _UseShadowCast: 1
     - _UseSuperStack: 0
     - _UseTP: 0
+    - _UseVP: 0
     - _UseVR: 0
     - _UseWC: 0
     - _WindForce: 0.3
