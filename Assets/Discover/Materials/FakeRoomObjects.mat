@@ -40,7 +40,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: bcf7904fc6371a5409e0fbc3232dfc98, type: 3}
+        m_Texture: {fileID: 2800000, guid: ad39ceb21e8b74bacb0be1f4b6d2e7b5, type: 3}
         m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 1}
     - _BumpMap:
@@ -68,7 +68,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bcf7904fc6371a5409e0fbc3232dfc98, type: 3}
+        m_Texture: {fileID: 2800000, guid: ad39ceb21e8b74bacb0be1f4b6d2e7b5, type: 3}
         m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 1}
     - _MetallicGlossMap:
@@ -140,10 +140,10 @@ Material:
     - _UseUIAlphaClip: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0, g: 1, b: 0.7079072, a: 0}
+    - _BaseColor: {r: 0, g: 1, b: 0.7079072, a: 0.5058824}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0, g: 1, b: 0.7079072, a: 0}
+    - _Color: {r: 0, g: 1, b: 0.7079072, a: 0.5058824}
     - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
     - _ColorDark: {r: 0, g: 0, b: 0, a: 0}
     - _ColorLight: {r: 1, g: 1, b: 1, a: 1}
