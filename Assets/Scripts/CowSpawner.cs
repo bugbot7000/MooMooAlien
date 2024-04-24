@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks.Triggers;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -17,6 +18,9 @@ public class CowSpawner : MonoBehaviour
 
     private void Update()
     {
-        OVRInput.Update();
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            spawnPos.StartSpawn();
+        }
     }
 }
