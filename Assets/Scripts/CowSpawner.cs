@@ -8,19 +8,8 @@ using UnityEngine;
 public class CowSpawner : MonoBehaviour
 {
     public FindSpawnPositions spawnPos;
-    void SpawnCow()
+    public void SpawnCow()
     {
-        if (OVRInput.Get(OVRInput.Button.One))
-        {
-            spawnPos.StartSpawn();
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            spawnPos.StartSpawn();
-        }
+    spawnPos.StartSpawn();
     }
 }
