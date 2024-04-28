@@ -3022,7 +3022,7 @@ PrefabInstance:
     - target: {fileID: 2223413674341923901, guid: 0fb25dd6b7a0649658e2e7f0e55f6c8a,
         type: 3}
       propertyPath: m_Name
-      value: Helpless Cow
+      value: Helpless Cow 1
       objectReference: {fileID: 0}
     - target: {fileID: 2428335971097662930, guid: 0fb25dd6b7a0649658e2e7f0e55f6c8a,
         type: 3}
