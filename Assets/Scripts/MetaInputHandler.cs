@@ -33,13 +33,23 @@ public class MetaInputHandler : MonoBehaviour
     void Update()
     {
         OVRInput.Update();
+#if UNITY_EDITOR
         CheckForEditorInput();
+#endif
         CheckQuestInput();
     }
 
-    void CheckForMetaInput()
+    void CheckForEditorInput()
     {
-        
+        if (Input.GetKey(KeyCode.F))
+        {
+            _onLeftIndexPressed.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            _onLeftMidPressed.Invoke();
+        }
     }
 
     public void TestInvoker()
@@ -68,45 +78,6 @@ public class MetaInputHandler : MonoBehaviour
         if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger,rController) >0.5f)
         {
             _onRightMidPressed.Invoke();
-        }
-    }
-    void CheckForEditorInput()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            _onAPressed.Invoke();
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            
-        }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            
-        }
-        if (Input.GetKeyDown(KeyCode.Minus))
-        {
-            
-        }
-        if (Input.GetKeyDown(KeyCode.Plus))
-        {
-            
         }
     }
     private void FixedUpdate()
