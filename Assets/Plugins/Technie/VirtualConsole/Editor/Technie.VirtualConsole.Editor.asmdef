@@ -1,0 +1,10 @@
+{
+    "name": "Technie.VirtualConsole.Editor",
+    "references": [
+        "Technie.VirtualConsole"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

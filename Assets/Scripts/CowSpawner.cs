@@ -2,8 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks.Triggers;
+using Meta.XR.MRUtilityKit;
 using Unity.VisualScripting;
+using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CowSpawner : MonoBehaviour
 {
@@ -19,7 +22,7 @@ public class CowSpawner : MonoBehaviour
             currentCowCount++;
         }
     }
-
+    [Button("ADD COW")]
     public void SpawnCow()
     {
         spawnPos.StartSpawn();

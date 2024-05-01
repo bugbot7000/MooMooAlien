@@ -12,13 +12,18 @@ public class CowController : MonoBehaviour
     public bool VisualizeTargetPosition = false;
     public float cowSpeed;
     private Animator anim;
+    public SceneNavigation navigator;
+
     void OnEnable()
     {
+        navigator = GameObject.Find("RoomNavMesh").GetComponent<SceneNavigation>();
         anim = GetComponent<Animator>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        navigator.Agents.Add(agent);
         timer = delayTimer;
         Transform childTransform = transform.Find("PositionIndicator");
         positionIndicator = childTransform.gameObject;
+        agent.enabled = true;
     }
     
         void Update()
