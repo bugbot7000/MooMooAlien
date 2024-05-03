@@ -8,11 +8,11 @@ using UnityEngine.Events;
 public class MetaInputHandler : MonoBehaviour
 {
     #region META QUEST CONTROLLER EVENTS
-    //[SerializeField]
+    [SerializeField]
     UnityEvent _onAPressed;
-    //[SerializeField]
+   // [SerializeField]
     UnityEvent _onBPressed;
-    //[SerializeField]
+    [SerializeField]
     UnityEvent _onXPressed;
     //[SerializeField]
     UnityEvent _onYPressed;
@@ -26,7 +26,9 @@ public class MetaInputHandler : MonoBehaviour
     UnityEvent _onLeftMidPressed;
     [SerializeField]
     UnityEvent _onRightMidPressed;
+    
     #endregion
+    
     
     public OVRInput.Controller lController, rController;
     // Update is called once per frame
@@ -78,6 +80,15 @@ public class MetaInputHandler : MonoBehaviour
         if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger,rController) >0.5f)
         {
             _onRightMidPressed.Invoke();
+        }
+
+        if (OVRInput.Get(OVRInput.RawButton.A))
+        {
+            _onAPressed.Invoke();
+        }
+        if (OVRInput.Get(OVRInput.RawButton.X))
+        {
+            _onXPressed.Invoke();
         }
     }
     private void FixedUpdate()

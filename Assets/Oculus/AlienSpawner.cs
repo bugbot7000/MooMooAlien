@@ -1,18 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
+using NaughtyAttributes;
 
 public class AlienSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public FindSpawnPositions spawnPos;
+    public int maxAliensAllowed;
+    public int currentAlienCount;
+    public float numberoAliensSpawned;
+    private void Start()
     {
-        
+        for (int i = 0; i < maxAliensAllowed; i++)
+        {
+            SpawnAlien();
+            currentAlienCount++;
+        }
+    }
+    [Button("ADD ALIEN")]
+    public void SpawnAlien()
+    {
+        spawnPos.StartSpawn();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (currentAlienCount < maxAliensAllowed)
+        {
+            SpawnAlien();
+        }
     }
 }

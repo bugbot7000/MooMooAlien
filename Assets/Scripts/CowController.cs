@@ -13,6 +13,7 @@ public class CowController : MonoBehaviour
     public float cowSpeed;
     private Animator anim;
     public SceneNavigation navigator;
+    public bool isBeingTargetted;
 
     void OnEnable()
     {
