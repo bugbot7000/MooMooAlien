@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Meta.XR.MRUtilityKit;
 using UnityEngine.AI;
+
 public class CowController : MonoBehaviour
 {
     private float delayTimer; // interval between random point discovery
@@ -13,8 +14,8 @@ public class CowController : MonoBehaviour
     public float cowSpeed;
     private Animator anim;
     public SceneNavigation navigator;
-    public bool isBeingTargetted;
-
+    public bool isBeingTargetted,isGettingBeamed;
+    
     void OnEnable()
     {
         navigator = GameObject.Find("RoomNavMesh").GetComponent<SceneNavigation>();
@@ -26,11 +27,35 @@ public class CowController : MonoBehaviour
         positionIndicator = childTransform.gameObject;
         agent.enabled = true;
     }
-    
-        void Update()
-    {
-        timer += Time.deltaTime;
 
+    void Update()
+    {
+        if (!isGettingBeamed)
+        {
+            timer += Time.deltaTime;
+
+            GetRandomWalkingPos();
+
+            if (agent.isStopped)
+            {
+                anim.Play("Eating");
+            }
+            else
+            {
+
+                anim.Play("Walk Forward In Place");
+            }
+        }
+    }
+
+    public void StopAndEat()
+    {
+        anim.Play("Eating");
+        delayTimer = 1000;
+    }
+
+    public void GetRandomWalkingPos()
+    {
         if (timer >= delayTimer)
         {
             // set the new set of randomize values for target position and speed
@@ -41,7 +66,10 @@ public class CowController : MonoBehaviour
             {
                 return;
             }
-            bool test = room.IsPositionInRoom(newPos, false); // occasionally NavMesh will generate areas outside the room, so we must test the value from RandomNavPoint
+
+            bool
+                test = room.IsPositionInRoom(newPos,
+                    false); // occasionally NavMesh will generate areas outside the room, so we must test the value from RandomNavPoint
 
             if (!test)
             {
@@ -60,15 +88,6 @@ public class CowController : MonoBehaviour
             delayTimer = newDelay;
             agent.speed = cowSpeed;
             timer = 0;
-        }
-
-        if (agent.isStopped)
-        {
-            anim.Play("Eating");
-        }
-        else
-        {
-            anim.Play("Walk Forward In Place");
         }
     }
 
@@ -136,9 +155,14 @@ public class CowController : MonoBehaviour
                 {
                     v = 1.0f - v;
                 }
-
             }
+
             return v0 + u * (v1 - v0) + v * (v2 - v0);
         }
     }
+
+    public void GettingBeamed()
+    {
+        isGettingBeamed = true;
+anim.Play("Beaming Up");    }
 }
