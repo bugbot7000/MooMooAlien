@@ -1,31 +1,41 @@
 using NaughtyAttributes;
 using UnityEngine;
+using System.Collections;
 
 public class CowSpawner : MonoBehaviour
 {
     public FindSpawnPositions spawnPos;
     public int maxCowsAllowed;
-    public int currentCowCount;
-    public float numberofCowsSpawned;
+    public int spawnLimit = 5; // Maximum number of cows to spawn via the coroutine
+    private int currentCowCount;
+    private int spawnedViaCoroutine;
+
     private void Start()
     {
-        for (int i = 0; i < maxCowsAllowed; i++)
-        {
-            SpawnCow();
-            currentCowCount++;
-        }
+        currentCowCount = 0;
+        spawnedViaCoroutine = 0;
+        StartCoroutine(SpawnCowsCoroutine());
     }
+
     [Button("ADD COW")]
     public void SpawnCow()
     {
-        spawnPos.StartSpawn();
-    }
-
-    private void Update()
-    {
         if (currentCowCount < maxCowsAllowed)
         {
-            SpawnCow();
+            spawnPos.StartSpawn();
+            currentCowCount++;
+        }
+    }
+
+    private IEnumerator SpawnCowsCoroutine()
+    {
+        while (spawnedViaCoroutine < spawnLimit && currentCowCount < maxCowsAllowed)
+        {
+            float spawnInterval = Random.Range(4f, 6f); // Random interval between 4 and 6 seconds
+            yield return new WaitForSeconds(spawnInterval);
+
+            SpawnCow(); // Increment `currentCowCount` within this method
+            spawnedViaCoroutine++;
         }
     }
 }

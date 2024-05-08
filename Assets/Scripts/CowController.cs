@@ -7,14 +7,14 @@ using UnityEngine.AI;
 public class CowController : MonoBehaviour
 {
     private float delayTimer; // interval between random point discovery
-    private UnityEngine.AI.NavMeshAgent agent;
+    public NavMeshAgent agent;
     private GameObject positionIndicator;
     private float timer; // used to calculate current timer value
     public bool VisualizeTargetPosition = false;
     public float cowSpeed;
     private Animator anim;
     public SceneNavigation navigator;
-    public bool isBeingTargetted,isGettingBeamed;
+    public bool isBeingTargetted,isGettingBeamed,isInit;
     
     void OnEnable()
     {
@@ -34,22 +34,24 @@ public class CowController : MonoBehaviour
         {
             timer += Time.deltaTime;
 
+            if (isInit)
+            {
             GetRandomWalkingPos();
-
-            if (agent.isStopped)
-            {
-                anim.Play("Eating");
-            }
-            else
-            {
-
-                anim.Play("Walk Forward In Place");
+                if (agent.isStopped)
+                {
+                    anim.Play("Eating");
+                }
+                else
+                {
+                    anim.Play("Walk Forward In Place");
+                }
             }
         }
     }
 
     public void StopAndEat()
     {
+        agent.enabled = false;
         anim.Play("Eating");
         delayTimer = 1000;
     }
