@@ -15,6 +15,7 @@ public class CowController : MonoBehaviour
     private Animator anim;
     public SceneNavigation navigator;
     public bool isBeingTargetted,isGettingBeamed,isInit;
+    public ParticleSystem ExitConfetti;
     
     void OnEnable()
     {
@@ -166,5 +167,20 @@ public class CowController : MonoBehaviour
     public void GettingBeamed()
     {
         isGettingBeamed = true;
-anim.Play("Beaming Up");    }
+        anim.Play("Beaming Up");    
+    }
+
+    public void FreedAtLast()
+    {
+        anim.Play("Free");
+       // ExitConfetti.Play();
+        Debug.Log("FREEEEEEEEEEE");
+        DestroySelf(4);
+    }
+
+    public void DestroySelf(int time)
+    {
+        Destroy(gameObject,time);
+    }
+    
 }

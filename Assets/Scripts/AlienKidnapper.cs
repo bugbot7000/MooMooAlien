@@ -16,7 +16,7 @@ public class AlienKidnapper : MonoBehaviour
     public List<GameObject> ActiveCows = new();
     public bool canHover, canSpin;
     private Vector3 startPos;
-    public GameObject SelectedCow;
+    public GameObject SelectedCow,CowConfetti;
     public CowController _cowController;
     private int randDelay, MaxHealth;
     public float moveSpeed, beamSpeed, heightAboveCow;
@@ -82,6 +82,14 @@ public class AlienKidnapper : MonoBehaviour
         ActiveCows = GameObject.FindGameObjectsWithTag("Cow").ToList();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Bullet")
+        {
+            OnHit();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -105,11 +113,22 @@ public class AlienKidnapper : MonoBehaviour
         }
         else
         {
-            rb.isKinematic = false;
-            rb.useGravity = true;
-            DieParticle.Play();
+            DieUFO();
         }
     }
+
+    private void DieUFO()
+    {
+        _cowController.FreedAtLast();
+        anim.gameObject.SetActive(false);
+        GameObject ExitConf = GameObject.Instantiate(CowConfetti);
+        ExitConf.transform.position = CowHolder.transform.position;
+        ExitConf.transform.localScale = new Vector3(0.075f, 0.075f, 0.075f);
+        ExitConf.transform.rotation = Quaternion.identity;
+        DieParticle.Play();
+        Destroy(gameObject,5);
+    }
+
     private void BeamCowUp()
     {
         if (!Ray.isPlaying)

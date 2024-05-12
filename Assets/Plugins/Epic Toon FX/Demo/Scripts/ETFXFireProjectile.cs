@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
+using NaughtyAttributes;
 
 namespace EpicToonFX
 {
@@ -56,14 +57,18 @@ namespace EpicToonFX
             Sound.PlayOneShot(reloadSound);
             fireTimer = 0;
         }
-
+        [Button("Fire Gun)")]
         private void FireBullet()
         {
             GameObject projectile =
                 Instantiate(projectiles[currentProjectile], spawnPosition.position,
                     Quaternion.identity) as GameObject; //Spawns the selected projectile
             projectile.GetComponent<ETFXProjectileScript>().CustomScale = ProjectileScale;
-            projectile.transform.LookAt(transform.forward); //Sets the projectiles rotation to look at the point clicked
+            projectile.transform.rotation = Quaternion.Euler(transform.localRotation.eulerAngles.x,
+                transform.localRotation.eulerAngles.y, transform.localRotation.eulerAngles.z);
+         //   projectile.transform.localRotation = Quaternion.LookRotation(transform.position);
+           // projectile.transform.LookAt(transform.forward); //Sets the projectiles rotation to look at the point clicked
+           // Debug.Break();
             projectile.GetComponent<Rigidbody>()
                 .AddForce(projectile.transform.forward *
                           speed); //Set the speed of the projectile by applying force to the rigidbody

@@ -7,6 +7,9 @@ TagManager:
   - Missile
   - Cow
   - UFO
+  - Key
+  - Keyboard
+  - Bullet
   layers:
   - Default
   - TransparentFX
