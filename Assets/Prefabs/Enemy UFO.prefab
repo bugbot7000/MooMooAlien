@@ -133,7 +133,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5053,9 +5053,11 @@ MonoBehaviour:
   canHover: 0
   canSpin: 0
   SelectedCow: {fileID: 0}
+  CowConfetti: {fileID: 5921462854352134970, guid: 2784663ee10f44a8e8b684f3125d34b1,
+    type: 3}
   _cowController: {fileID: 0}
-  moveSpeed: 1
-  beamSpeed: 0.0025
+  moveSpeed: 2
+  beamSpeed: 0.001
   heightAboveCow: 2
   CowHolder: {fileID: 658636461820443353}
   initialRange: 0
@@ -5063,7 +5065,7 @@ MonoBehaviour:
   ScaleFactor: 0
   maxHealth: 5
   currentHealth: 0
-  DieParticle: {fileID: 0}
+  DieParticle: {fileID: 870329361369721873}
 --- !u!65 &7903424270144698514
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5079,7 +5081,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -10137,7 +10139,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -15015,7 +15017,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -34654,7 +34656,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -44667,7 +44669,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -54585,7 +54587,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -59579,7 +59581,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

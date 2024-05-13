@@ -38,7 +38,6 @@ namespace EpicToonFX
                 {
 
                     FireBullet();
-                    Debug.Log("Shot Bullet No. " + CurrentAmmo);
                     fireTimer = 0;
                 }
                 else
@@ -64,8 +63,8 @@ namespace EpicToonFX
                 Instantiate(projectiles[currentProjectile], spawnPosition.position,
                     Quaternion.identity) as GameObject; //Spawns the selected projectile
             projectile.GetComponent<ETFXProjectileScript>().CustomScale = ProjectileScale;
-            projectile.transform.rotation = Quaternion.Euler(transform.localRotation.eulerAngles.x,
-                transform.localRotation.eulerAngles.y, transform.localRotation.eulerAngles.z);
+            projectile.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x,
+                transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
          //   projectile.transform.localRotation = Quaternion.LookRotation(transform.position);
            // projectile.transform.LookAt(transform.forward); //Sets the projectiles rotation to look at the point clicked
            // Debug.Break();

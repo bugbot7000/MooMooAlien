@@ -134,13 +134,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectiles:
   - {fileID: 128572, guid: 1a28c48e046090e4f944cdc2df24f20a, type: 3}
-  - {fileID: 128572, guid: 90186716b08d60c47897782560d86cfb, type: 3}
   spawnPosition: {fileID: 845871114315534152}
   currentProjectile: 0
-  speed: 1000
+  speed: 100
   fireSpeed: 0.2
   fireTimer: 0
-  MaxAmmo: 10
+  MaxAmmo: 100
   CurrentAmmo: 0
   ProjectileScale: {x: 0.3, y: 0.3, z: 0.3}
   emptySound: {fileID: 8300000, guid: 80b989e309a9a4a88b26b81df9d78ea1, type: 3}

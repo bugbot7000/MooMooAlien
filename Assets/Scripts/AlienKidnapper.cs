@@ -31,6 +31,7 @@ public class AlienKidnapper : MonoBehaviour
     private void Start()
     {
         startPos = transform.localPosition;
+        // maxHealth = maxHealth * 5;
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
         ActiveCows = GameObject.FindGameObjectsWithTag("Cow").ToList();
@@ -86,6 +87,7 @@ public class AlienKidnapper : MonoBehaviour
     {
         if (other.tag == "Bullet")
         {
+            Debug.Log("ONTRIGGER CALLED");
             OnHit();
         }
     }
@@ -119,7 +121,7 @@ public class AlienKidnapper : MonoBehaviour
 
     private void DieUFO()
     {
-        _cowController.FreedAtLast();
+        if(_cowController!=null){_cowController.FreedAtLast();}
         anim.gameObject.SetActive(false);
         GameObject ExitConf = GameObject.Instantiate(CowConfetti);
         ExitConf.transform.position = CowHolder.transform.position;
