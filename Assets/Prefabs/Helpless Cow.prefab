@@ -577,12 +577,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   VisualizeTargetPosition: 1
-  cowSpeed: 0.25
+  cowSpeed: 0.75
   navigator: {fileID: 0}
   isBeingTargetted: 0
   isGettingBeamed: 0
   isInit: 0
   ExitConfetti: {fileID: 0}
+  _navMeshInit: {fileID: 0}
 --- !u!195 &7872568816356137335
 NavMeshAgent:
   m_ObjectHideFlags: 0

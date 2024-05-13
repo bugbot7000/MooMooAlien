@@ -16,10 +16,13 @@ public class CowController : MonoBehaviour
     public SceneNavigation navigator;
     public bool isBeingTargetted,isGettingBeamed,isInit;
     public ParticleSystem ExitConfetti;
+    public NavMeshInitializer _navMeshInit;
     
     void OnEnable()
     {
         navigator = GameObject.Find("RoomNavMesh").GetComponent<SceneNavigation>();
+        _navMeshInit = navigator.transform.GetComponent<NavMeshInitializer>();
+        isInit = _navMeshInit.Initialized;
         anim = GetComponent<Animator>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         navigator.Agents.Add(agent);
@@ -40,10 +43,12 @@ public class CowController : MonoBehaviour
             GetRandomWalkingPos();
                 if (agent.isStopped)
                 {
+                    Debug.Log("Eating");
                     anim.Play("Eating");
                 }
                 else
                 {
+                    Debug.Log("Walking");
                     anim.Play("Walk Forward In Place");
                 }
             }

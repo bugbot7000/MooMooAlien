@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _SceneNavigation: {fileID: 2610814}
+  Initialized: 0
 --- !u!1 &24549696
 GameObject:
   m_ObjectHideFlags: 0
@@ -5535,7 +5536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &959624702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5604,7 +5605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {fileID: 959624702}
-  maxCowsAllowed: 4
+  maxCowsAllowed: 8
   spawnLimit: 5
 --- !u!1 &975906090
 GameObject:
@@ -6789,7 +6790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1418534228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6877,7 +6878,7 @@ PrefabInstance:
     - target: {fileID: 2223413674341923901, guid: 0fb25dd6b7a0649658e2e7f0e55f6c8a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2428335971097662930, guid: 0fb25dd6b7a0649658e2e7f0e55f6c8a,
         type: 3}
@@ -7210,7 +7211,7 @@ PrefabInstance:
     - target: {fileID: 4879951659005437192, guid: e97944240225b41c1959a49cc8b0cff4,
         type: 3}
       propertyPath: speed
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4879951659005437192, guid: e97944240225b41c1959a49cc8b0cff4,
         type: 3}
@@ -7270,12 +7271,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1610531990}
   m_Layer: 0
-  m_Name: Holder
+  m_Name: Gun Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1610531990
 Transform:
   m_ObjectHideFlags: 0
@@ -7804,11 +7805,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1610531990}
     m_Modifications:
-    - target: {fileID: 845871114315534152, guid: e97944240225b41c1959a49cc8b0cff4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.3407
-      objectReference: {fileID: 0}
     - target: {fileID: 2897592914335133379, guid: e97944240225b41c1959a49cc8b0cff4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7863,11 +7859,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player Gun Working
-      objectReference: {fileID: 0}
-    - target: {fileID: 6363662249489692727, guid: e97944240225b41c1959a49cc8b0cff4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8154,7 +8145,7 @@ PrefabInstance:
     - target: {fileID: 4879951659005437192, guid: e97944240225b41c1959a49cc8b0cff4,
         type: 3}
       propertyPath: speed
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4879951659005437192, guid: e97944240225b41c1959a49cc8b0cff4,
         type: 3}
