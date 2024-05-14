@@ -8,7 +8,7 @@ public class CowController : MonoBehaviour
 {
     private float delayTimer; // interval between random point discovery
     public NavMeshAgent agent;
-    private GameObject positionIndicator;
+    public GameObject positionIndicator;
     private float timer; // used to calculate current timer value
     public bool VisualizeTargetPosition = false;
     public float cowSpeed;
@@ -17,7 +17,8 @@ public class CowController : MonoBehaviour
     public bool isBeingTargetted,isGettingBeamed,isInit;
     public ParticleSystem ExitConfetti;
     public NavMeshInitializer _navMeshInit;
-    
+    public AudioSource MooSound;
+    public AudioClip Moo1, Moo2;
     void OnEnable()
     {
         navigator = GameObject.Find("RoomNavMesh").GetComponent<SceneNavigation>();
@@ -173,16 +174,38 @@ public class CowController : MonoBehaviour
     {
         isGettingBeamed = true;
         anim.Play("Beaming Up");    
+        Debug.Log("Beaming");
+        MooForMe();
     }
 
     public void FreedAtLast()
     {
         anim.Play("Free");
        // ExitConfetti.Play();
-        Debug.Log("FREEEEEEEEEEE");
         DestroySelf(4);
     }
 
+    public void MooForMe()
+    {
+        Debug.Log("Mooeing");
+
+        int rand = 0;
+        rand = Random.Range(1, 2);
+        Debug.Log(rand + "GIRIIRC");
+            if (rand == 1)
+            {
+                MooSound.clip = Moo1;
+            }
+            else
+            {
+                {
+                    MooSound.clip = Moo2;
+                }
+            }
+        float randNo = 10f;
+        MooSound.pitch *= 1 + Random.Range(-randNo / 100, randNo / 100);
+        MooSound.Play();
+    }
     public void DestroySelf(int time)
     {
         Destroy(gameObject,time);

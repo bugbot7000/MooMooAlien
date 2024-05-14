@@ -28,6 +28,7 @@ public class AlienKidnapper : MonoBehaviour
     private Rigidbody rb;
     public ParticleSystem DieParticle;
     private Rotator rot;
+    public AudioSource Explosion, Beam;
     private void Start()
     {
         startPos = transform.localPosition;
@@ -36,6 +37,7 @@ public class AlienKidnapper : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         ActiveCows = GameObject.FindGameObjectsWithTag("Cow").ToList();
         GetRandomCow();
+        RandomizePitch();
         if (_cowController != null)
         {
             randDelay = Random.Range(3, 5);
@@ -124,26 +126,44 @@ public class AlienKidnapper : MonoBehaviour
         if(_cowController!=null){_cowController.FreedAtLast();}
         anim.gameObject.SetActive(false);
         GameObject ExitConf = GameObject.Instantiate(CowConfetti);
+        moveSpeed = 0;
+        beamSpeed = 0;
         ExitConf.transform.position = CowHolder.transform.position;
         ExitConf.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
         ExitConf.transform.rotation = Quaternion.identity;
         DieParticle.Play();
         Destroy(gameObject,5);
+        Explosion.Play();
+        transform.parent.GetComponent<AlienSpawner>().currentAlienCount--;
     }
-
+    
     private void BeamCowUp()
     {
         if (!Ray.isPlaying)
         {
             Ray.Play();
+            Beam.Play();
         }
         CowHolder.transform.localPosition =
             Vector3.MoveTowards(CowHolder.transform.localPosition, Ray.transform.localPosition, beamSpeed);
         finalRange = Vector3.Distance(CowHolder.transform.localPosition, Ray.transform.localPosition);
+        if (finalRange < 0.1f)
+        {
+            CowHolder.gameObject.SetActive(false);
+            Ray.Stop();
+            Beam.Stop();
+        }
         ScaleFactor = Mathf.InverseLerp(0, initialRange, finalRange);
         ScaleFactor += 0.25f;
         ScaleFactor = Mathf.Clamp(ScaleFactor, 0f, 1f);
         CowHolder.transform.localScale = new Vector3(ScaleFactor,ScaleFactor,ScaleFactor);
-        
     }
+
+    void RandomizePitch()
+    {
+        float randNo = 10f;
+        Explosion.pitch *= 1 + Random.Range(-randNo / 100, randNo / 100);
+        Beam.pitch *= 1 + Random.Range(-randNo / 100, randNo / 100);
+    }
+
 }

@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Samples/Meta XR Haptics SDK/64.0.0/Meta XR Haptics Minimal Example/Scenes/HapticsSampleScene.unity
-    guid: 2ae1da2729cdc46ab85d6edd7c3dc3a7
   - enabled: 1
     path: Assets/Scenes/NavMesh 1.unity
     guid: 6283fe1ab743541228fbcfcbc4553757

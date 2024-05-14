@@ -31,7 +31,7 @@ public class AlienSpawner : MonoBehaviour
     {
         while (spawnedViaTimer < spawnLimit && currentAlienCount < maxAliensAllowed)
         {
-            float spawnInterval = Random.Range(4f, 6f); // Random interval between 4 and 6 seconds
+            float spawnInterval = Random.Range(2f, 3f); // Random interval between 4 and 6 seconds
             yield return new WaitForSeconds(spawnInterval);
 
             SpawnAlien();
