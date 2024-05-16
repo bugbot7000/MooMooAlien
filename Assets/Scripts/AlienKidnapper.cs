@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks.Triggers;
 using NaughtyAttributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -29,8 +30,26 @@ public class AlienKidnapper : MonoBehaviour
     public ParticleSystem DieParticle;
     private Rotator rot;
     public AudioSource Explosion, Beam;
+    private GameManager gm;
+    private CowSpawner _cowSpawner;
+    public bool cowSaved = true;
+    private void OnEnable()
+    {
+        _cowSpawner = GameObject.Find("Cow Spawn Handler").GetComponent<CowSpawner>();
+        _cowSpawner._cowSpawned += UpdateActiveCowList;
+    }
+
+    private void FetchNewCow()
+    {
+        // Destroy(SelectedCow.gameObject);
+        // _cowController = null;
+        // GetRandomCow();
+        // randDelay = 2;
+    }
+
     private void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         startPos = transform.localPosition;
         // maxHealth = maxHealth * 5;
         currentHealth = maxHealth;
@@ -97,7 +116,7 @@ public class AlienKidnapper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (randDelay != 0)
+        if (randDelay != 0 && SelectedCow!=null)
         {
             TargetCow();
         }
@@ -110,6 +129,7 @@ public class AlienKidnapper : MonoBehaviour
     [Button("Got Hit")]
     public void OnHit()
     {
+        gm.shotsHit++;
         if (currentHealth > 0)
         {
             anim.Play("UFO Hit");
@@ -117,12 +137,15 @@ public class AlienKidnapper : MonoBehaviour
         }
         else
         {
+            gm.aliensKilled++;
             DieUFO();
         }
     }
 
     private void DieUFO()
     {
+        gameObject.tag = "Untagged";
+        Destroy(transform.GetComponent<BoxCollider>());
         if(_cowController!=null){_cowController.FreedAtLast();}
         anim.gameObject.SetActive(false);
         GameObject ExitConf = GameObject.Instantiate(CowConfetti);
@@ -132,8 +155,12 @@ public class AlienKidnapper : MonoBehaviour
         ExitConf.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
         ExitConf.transform.rotation = Quaternion.identity;
         DieParticle.Play();
-        Destroy(gameObject,5);
-        Explosion.Play();
+        Destroy(gameObject,2.5f);
+        if (cowSaved == true && _cowController!=null)
+        {
+            Explosion.Play();
+            gm.cowsSaved++;
+        }
         transform.parent.GetComponent<AlienSpawner>().currentAlienCount--;
     }
     
@@ -152,11 +179,20 @@ public class AlienKidnapper : MonoBehaviour
             CowHolder.gameObject.SetActive(false);
             Ray.Stop();
             Beam.Stop();
+            cowSaved = false;
+            VanishUFO();
+            _cowController = null;
+           // FetchNewCow();
         }
         ScaleFactor = Mathf.InverseLerp(0, initialRange, finalRange);
         ScaleFactor += 0.25f;
         ScaleFactor = Mathf.Clamp(ScaleFactor, 0f, 1f);
         CowHolder.transform.localScale = new Vector3(ScaleFactor,ScaleFactor,ScaleFactor);
+    }
+
+    private void VanishUFO()
+    {
+        anim.Play("Exit");
     }
 
     void RandomizePitch()
@@ -165,5 +201,8 @@ public class AlienKidnapper : MonoBehaviour
         Explosion.pitch *= 1 + Random.Range(-randNo / 100, randNo / 100);
         Beam.pitch *= 1 + Random.Range(-randNo / 100, randNo / 100);
     }
-
+    private void OnDisable()
+    {
+        _cowSpawner._cowSpawned -= FetchNewCow;
+    }
 }

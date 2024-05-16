@@ -2,9 +2,7 @@
 using UnityEngine.EventSystems;
 using System.Collections;
 using NaughtyAttributes;
-
-namespace EpicToonFX
-{
+using EpicToonFX;
     public class ETFXFireProjectile : MonoBehaviour
     {
         [SerializeField]
@@ -20,6 +18,12 @@ namespace EpicToonFX
         private AudioSource Sound;
         public AudioClip emptySound, reloadSound;
         private Animator anim;
+        public int ShotsFiredFromGun;
+        public  bool canFire;
+        private void OnEnable()
+        {
+            GetComponent<Animator>().Play("Gun Spawn");
+        }
         void Start()
         {
             CurrentAmmo = MaxAmmo;
@@ -28,23 +32,27 @@ namespace EpicToonFX
         }
 
         RaycastHit hit;
-
+        
+        [Button("Fire Gun)")]
         public void CheckAndFire()
         {
-            fireTimer += Time.deltaTime;
-            if (fireTimer >= fireSpeed)
+            if (canFire)
             {
-                if (CurrentAmmo > 0)
+                fireTimer += Time.deltaTime;
+                if (fireTimer >= fireSpeed)
                 {
+                    if (CurrentAmmo > 0)
+                    {
 
-                    FireBullet();
-                    fireTimer = 0;
-                }
-                else
-                {
-                    anim.Play("Gun Empty");
-                    fireTimer = 0;
-                    Sound.PlayOneShot(emptySound);
+                        FireBullet();
+                        fireTimer = 0;
+                    }
+                    else
+                    {
+                        anim.Play("Gun Empty");
+                        fireTimer = 0;
+                        Sound.PlayOneShot(emptySound);
+                    }
                 }
             }
         }
@@ -56,7 +64,6 @@ namespace EpicToonFX
             Sound.PlayOneShot(reloadSound);
             fireTimer = 0;
         }
-        [Button("Fire Gun)")]
         private void FireBullet()
         {
             GameObject projectile =
@@ -72,6 +79,6 @@ namespace EpicToonFX
                 .AddForce(projectile.transform.forward *
                           speed); //Set the speed of the projectile by applying force to the rigidbody
             CurrentAmmo--;
+            ShotsFiredFromGun++;
         }
     }
-}

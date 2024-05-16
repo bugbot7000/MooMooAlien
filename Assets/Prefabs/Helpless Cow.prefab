@@ -587,7 +587,7 @@ MonoBehaviour:
   ExitConfetti: {fileID: 0}
   _navMeshInit: {fileID: 0}
   MooSound: {fileID: 8311587204314902445}
-  Moo1: {fileID: 8300000, guid: cf2eea2360abe4d83baa619b43a3af05, type: 3}
+  Moo1: {fileID: 8300000, guid: aa246505e8d3d49418b6ba527fb5ddbf, type: 3}
   Moo2: {fileID: 8300000, guid: cf2eea2360abe4d83baa619b43a3af05, type: 3}
 --- !u!195 &7872568816356137335
 NavMeshAgent:

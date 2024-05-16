@@ -52,7 +52,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2897592914335133379
 Transform:
   m_ObjectHideFlags: 0
@@ -137,13 +137,15 @@ MonoBehaviour:
   spawnPosition: {fileID: 845871114315534152}
   currentProjectile: 0
   speed: 500
-  fireSpeed: 0.2
+  fireSpeed: 0
   fireTimer: 0
-  MaxAmmo: 100
+  MaxAmmo: 5
   CurrentAmmo: 0
   ProjectileScale: {x: 0.15, y: 0.15, z: 0.15}
   emptySound: {fileID: 8300000, guid: 80b989e309a9a4a88b26b81df9d78ea1, type: 3}
   reloadSound: {fileID: 8300000, guid: 049c70119d3ec4f49ad756cdd4b26555, type: 3}
+  ShotsFiredFromGun: 0
+  canFire: 0
 --- !u!82 &6668698331576881855
 AudioSource:
   m_ObjectHideFlags: 0
@@ -156,7 +158,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -252,7 +254,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -91,7 +91,7 @@ Material:
     - _AlphaX: 1.45
     - _AlphaZ: -0.42
     - _Blend: 0
-    - _BoillingSpeed: 1.53
+    - _BoillingSpeed: 4.13
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -108,10 +108,10 @@ Material:
     - _Metallic: 0
     - _Mettallic: 0
     - _NoiseAlphaStrenght: 1
-    - _NoiseScale: 19.5
+    - _NoiseScale: 15.7
     - _NormalMapScale: 2.09
     - _NormalMapSpeed: 3
-    - _NormalStrenght: 1
+    - _NormalStrenght: 1.79
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -135,9 +135,9 @@ Material:
     - _NoiseTilling: {r: -25, g: -25, b: 0, a: 0}
     - _NormalMapColor: {r: 1, g: 0, b: 0, a: 0}
     - _NormalTilling: {r: -15, g: -15, b: 0, a: 0}
-    - _SideColor: {r: 0.8898759, g: 0, b: 1, a: 1}
+    - _SideColor: {r: 1, g: 0, b: 0.107281685, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TopColor: {r: 0.3627296, g: 0, b: 0.46497557, a: 1}
+    - _TopColor: {r: 1, g: 0, b: 0.04943371, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1424172971903428214
 MonoBehaviour:

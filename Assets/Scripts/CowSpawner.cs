@@ -9,7 +9,10 @@ public class CowSpawner : MonoBehaviour
     public int spawnLimit = 5; // Maximum number of cows to spawn via the coroutine
     private int currentCowCount;
     private int spawnedViaCoroutine;
+    public float SpawnRand1, SpawnRand2;
+    public delegate void CowSpawnerDelegate();
 
+    public CowSpawnerDelegate _cowSpawned;
     private void Start()
     {
         
@@ -25,6 +28,7 @@ public class CowSpawner : MonoBehaviour
         {
             spawnPos.StartSpawn();
             currentCowCount++;
+            _cowSpawned?.Invoke();
         }
     }
     
@@ -32,7 +36,7 @@ public class CowSpawner : MonoBehaviour
     {
         while (spawnedViaCoroutine < spawnLimit && currentCowCount < maxCowsAllowed)
         {
-            float spawnInterval = Random.Range(1f, 2f); // Random interval between 4 and 6 seconds
+            float spawnInterval = Random.Range(SpawnRand1, SpawnRand2); // Random interval between 4 and 6 seconds
             yield return new WaitForSeconds(spawnInterval);
 
             SpawnCow(); // Increment `currentCowCount` within this method

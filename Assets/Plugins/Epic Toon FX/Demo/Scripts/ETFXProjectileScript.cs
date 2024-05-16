@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 namespace EpicToonFX
 {
@@ -14,6 +16,9 @@ namespace EpicToonFX
         public float collideOffset = 0.15f;
 
         public Vector3 CustomScale;
+
+       
+
         void Start()
         {
             projectileParticle = Instantiate(projectileParticle, transform.position, transform.rotation) as GameObject;

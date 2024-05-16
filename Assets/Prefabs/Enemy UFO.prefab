@@ -5058,9 +5058,9 @@ MonoBehaviour:
   CowConfetti: {fileID: 5921462854352134970, guid: 2784663ee10f44a8e8b684f3125d34b1,
     type: 3}
   _cowController: {fileID: 0}
-  moveSpeed: 2.5
-  beamSpeed: 0.0025
-  heightAboveCow: 2
+  moveSpeed: 3
+  beamSpeed: 0.00725
+  heightAboveCow: 2.25
   CowHolder: {fileID: 658636461820443353}
   initialRange: 0
   finalRange: 0
@@ -5070,6 +5070,7 @@ MonoBehaviour:
   DieParticle: {fileID: 870329361369721873}
   Explosion: {fileID: 885673784610698064}
   Beam: {fileID: 5921840195027679539}
+  cowSaved: 1
 --- !u!65 &7903424270144698514
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49792,7 +49793,7 @@ ParticleSystem:
   m_GameObject: {fileID: 5875742568670970361}
   serializedVersion: 8
   lengthInSec: 0.4
-  simulationSpeed: 1
+  simulationSpeed: 3
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -59677,6 +59678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1472810746453039518}
   - component: {fileID: 1076848245964371695}
+  - component: {fileID: 5097328660165059034}
   m_Layer: 0
   m_Name: UFO Combined
   m_TagString: Untagged
@@ -59727,6 +59729,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5097328660165059034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489170071422393420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d869799323e4310ad095da5133d5de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6719050605858841125
 GameObject:
   m_ObjectHideFlags: 0

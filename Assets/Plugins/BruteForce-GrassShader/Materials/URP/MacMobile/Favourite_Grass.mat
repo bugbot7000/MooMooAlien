@@ -2,20 +2,28 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Favourite_Grass
   m_Shader: {fileID: 4800000, guid: bf1b67d8223379749a0a88d47d0a7154, type: 3}
-  m_ShaderKeywords: USE_RT USE_S USE_SC _RTEFFECT_ON
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - USE_RT
+  - USE_VR
+  - USE_WC
+  m_InvalidKeywords:
+  - _RTEFFECT_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: _SelfShadowColor
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -75,6 +83,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -85,11 +94,11 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GrassCut: 0
-    - _GrassSaturation: 5
-    - _GrassShading: 0.032
-    - _GrassThinness: 0.79
-    - _GrassThinnessIntersection: 0.17
+    - _GrassCut: 0.133
+    - _GrassSaturation: 2.65
+    - _GrassShading: 0
+    - _GrassThinness: 1.1
+    - _GrassThinnessIntersection: 0.573
     - _Metallic: 0
     - _Mode: 0
     - _NoisePower: 2
@@ -104,15 +113,19 @@ Material:
     - _TilingN2: 0.05
     - _TilingN3: 1
     - _UVSec: 0
+    - _UseAmbientLight: 0
     - _UsePR: 0
     - _UseRT: 1
-    - _UseShadow: 1
-    - _UseShadowCast: 1
-    - _UseWC: 0
-    - _WindForce: 0.2
-    - _WindMovement: 0.45
-    - _WorldRotation: 360
-    - _WorldScale: 10
+    - _UseShadow: 0
+    - _UseShadowCast: 0
+    - _UseTP: 0
+    - _UseVP: 0
+    - _UseVR: 1
+    - _UseWC: 1
+    - _WindForce: 0.25
+    - _WindMovement: 0.25
+    - _WorldRotation: 0
+    - _WorldScale: 15
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.8399999, g: 0.8399999, b: 0.8399999, a: 1}
@@ -120,3 +133,4 @@ Material:
     - _GroundColor: {r: 0.95699996, g: 0.8818866, b: 0.69860995, a: 1}
     - _ProjectedShadowColor: {r: 0.72, g: 0.70392126, b: 0.06886956, a: 1}
     - _SelfShadowColor: {r: 0.41568625, g: 0.4313725, b: 0.3607843, a: 1}
+  m_BuildTextureStacks: []

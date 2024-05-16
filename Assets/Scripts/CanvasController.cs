@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,12 @@ using UnityEngine;
 public class CanvasController : MonoBehaviour
 {
     public GameObject controllerCanvas, scoreCanvas;
+    public bool GameOver;
+
+    private void Start()
+    {
+        GameOver = false;
+    }
 
     public void ToggleControllerCanvas()
     {
@@ -12,6 +19,9 @@ public class CanvasController : MonoBehaviour
     }
     public void ToggleScoreCanvas()
     {
-        scoreCanvas.gameObject.SetActive(!scoreCanvas.activeSelf);
+        if (GameOver == true)
+        {
+            scoreCanvas.gameObject.SetActive(!scoreCanvas.activeSelf);
+        }
     }
 }
